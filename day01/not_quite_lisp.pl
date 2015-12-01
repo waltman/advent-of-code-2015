@@ -16,4 +16,5 @@ while (<>) {
     }
     say "$floor $basement => $_";
     $floor = 0;
+    $basement = 0;
 }
