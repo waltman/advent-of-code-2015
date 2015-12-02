@@ -1,6 +1,9 @@
 #include <stdio.h>
 #include <string.h>
 
+int wrapping(int *d);
+int ribbon(int *d);
+
 int main (int argc, char *argv[]) {
         int c;
         int total_wrapping = 0;
