@@ -3,7 +3,7 @@ import fileinput
 import re
 import sys
 import string
-from pylab import *
+from numpy import *
 
 XMAX = 1000
 YMAX = 1000
