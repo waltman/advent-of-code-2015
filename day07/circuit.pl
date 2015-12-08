@@ -2,7 +2,7 @@
 use strict;
 use warnings;
 use Wire;
-use 5.10.0;
+use 5.22.0;
 
 my %wires;
 while (<>) {
@@ -16,8 +16,7 @@ while (<>) {
 
 say "finished loading...";
 
-# for my $key (qw/d e f g h i x y/) {
-for my $key (qw/a/) {
+for my $key (sort keys %wires) {
     my $val = $wires{$key}->value(\%wires);
     say "$key: $val";
 }
