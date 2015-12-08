@@ -3,7 +3,8 @@ package Wire;
 use strict;
 use warnings;
 use Carp;
-use 5.10.0;
+use 5.22.0;
+use experimental 'bitwise';
 
 sub new {
     my ($package, $from, $to) = @_;
@@ -51,23 +52,23 @@ sub value {
         my $arg2 = $self->{arg2};
 
         if ($self->{op} eq "NOT") {
-            my $val = $wires->{$arg1}->value($wires) + 0;
-            $self->{value} = ~$val & 0xffff;
+            my $val = $wires->{$arg1}->value($wires);
+            $self->{value} = 0xffff & ~$val;
         } elsif ($self->{op} eq "EQUALS") {
-            my $val = $wires->{$arg1}->value($wires) + 0;
+            my $val = $wires->{$arg1}->value($wires);
             $self->{value} = $val;
         } else {
             my $val1;
             if ($arg1 =~ /^\d+$/) {
-                $val1 = $arg1 + 0;
+                $val1 = $arg1;
             } else {
-                $val1 = $wires->{$arg1}->value($wires) + 0;
+                $val1 = $wires->{$arg1}->value($wires);
             }
             my $val2;
             if ($arg2 =~ /^\d+$/) {
-                $val2 = $arg2 + 0;
+                $val2 = $arg2;
             } else {
-                $val2 = $wires->{$arg2}->value($wires) + 0;
+                $val2 = $wires->{$arg2}->value($wires);
             }
 
             if ($self->{op} eq "AND") {
