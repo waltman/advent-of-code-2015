@@ -11,7 +11,7 @@ my $n = 0;
 while (1) {
     $n++;
 
-    if ($pw =~ /i|l|o/) {
+    if ($pw =~ /[ilo]/) {
         $pw++;
         next;
     }
