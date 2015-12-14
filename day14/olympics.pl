@@ -4,7 +4,7 @@ use warnings;
 use 5.22.0;
 
 my $n = shift;
-my %name;
+my @names;
 my %speed;
 my %durr;
 my %rest;
@@ -12,14 +12,14 @@ my %rest;
 while (<>) {
     my @F = split;
     my ($name, $speed, $durr, $rest) = @F[0, 3, 6, -2];
-    $name{$name} = $name;
+    push @names, $name;
     $speed{$name} = $speed;
     $durr{$name} = $durr;
     $rest{$name} = $rest;
 }
 
 my %dist;
-for my $name (sort keys %name) {
+for my $name (@names) {
     $dist{$name} = calc_dist($speed{$name}, $durr{$name}, $rest{$name}, $n);
 }
 
