@@ -38,19 +38,3 @@ for my $i (1..$n) {
 for my $k (sort {$points{$b} <=> $points{$a}} keys %points) {
     say "$k\t$points{$k}";
 }
-
-sub calc_dist {
-    my ($speed, $durr, $rest, $n) = @_;
-    my $t = 0;
-    my $dist = 0;
-
-    while ($t < $n) {
-        for (my $i = 0; $i < $durr && $t < $n; $i++, $t++) {
-            $dist += $speed;
-        }
-
-        $t += $rest;
-    }
-
-    return $dist;
-}
