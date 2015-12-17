@@ -14,7 +14,6 @@ while (<>) {
 
 my $n = @container;
 my $cnt = 0;
-
 for my $i (1..2**$n - 1) {
     my @subset = subset($i, $n);
     if (sum(@container[@subset]) == $target) {
@@ -35,7 +34,7 @@ sub subset {
     my @in_set;
 
     for my $exp (0..$n-1) {
-        push @in_set, $exp if ($i & 2**$exp);
+        push @in_set, $exp if ($i & 1 << $exp);
     }
 
     return @in_set;
