@@ -1,3 +1,4 @@
+CFLAGS = -O3
 eggnog: eggnog.c
 
 clean:
