@@ -7,12 +7,7 @@ use 5.22.0;
 my @sues;
 while (<>) {
     chomp;
-    my @F = split /[ :,]+/;
-    my %h = (number => $F[1]);
-    for (my $i = 2; $i < @F; $i += 2) {
-        $h{$F[$i]} = $F[$i+1];
-    }
-    push @sues, \%h;
+    push @sues, {split /[ :,]+/};
 }
 
 my %mfcam = (children => 3,
@@ -33,5 +28,5 @@ for my $sue (@sues) {
         $bad = 1 if exists $sue->{$k} && $sue->{$k} != $v;
     }
     next if $bad;
-    say $sue->{number};
+    say $sue->{Sue};
 }
