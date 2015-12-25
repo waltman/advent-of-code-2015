@@ -5,7 +5,9 @@ use 5.10.0;
 
 say stirling(10, 3);
 say stirling(28, 3);
+say stirling(28, 4);
 say stirling(28, 2);
+say stirling(22, 2);
 
 # from https://en.wikipedia.org/wiki/Stirling_numbers_of_the_second_kind
 sub stirling {
